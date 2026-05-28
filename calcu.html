@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Pie de Auto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 50%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Calculadora de Pie de Auto</h2>
+    <label for="saldo">Ingrese Saldo Precio: $</label>
+    <input type="number" id="saldo" min="0">
+    <button onclick="calcularPie()">Calcular</button>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Pie (%)</th>
+                <th>Valor Pie</th>
+                <th>Valor del Auto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>25%</td>
+                <td id="pie25"></td>
+                <td id="valor25"></td>
+            </tr>
+            <tr>
+                <td>35%</td>
+                <td id="pie35"></td>
+                <td id="valor35"></td>
+            </tr>
+            <tr>
+                <td>40%</td>
+                <td id="pie40"></td>
+                <td id="valor40"></td>
+            </tr>
+            <tr>
+                <td>46%</td>
+                <td id="pie46"></td>
+                <td id="valor46"></td>
+            </tr>
+            <tr>
+                <td>55%</td>
+                <td id="pie55"></td>
+                <td id="valor55"></td>
+            </tr>
+            <tr>
+                <td>70%</td>
+                <td id="pie70"></td>
+                <td id="valor70"></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <script>
+        function calcularPie() {
+            let saldoPrecio = parseFloat(document.getElementById('saldo').value);
+            if (isNaN(saldoPrecio) || saldoPrecio <= 0) {
+                alert('Por favor, ingrese un saldo precio válido.');
+                return;
+            }
+            
+            let pie25 = (saldoPrecio * 0.25) / 0.75;
+            let pie35 = (saldoPrecio * 0.35) / 0.65;
+            let pie40 = (saldoPrecio * 0.4) / 0.6;
+            let pie46 = (saldoPrecio * 0.46) / 0.54;
+            let pie55 = (saldoPrecio * 0.55) / 0.45;
+            let pie70 = (saldoPrecio * 0.7) / 0.3;
+            
+            document.getElementById('pie25').innerText = `$${pie25.toFixed(2)}`;
+            document.getElementById('valor25').innerText = `$${(saldoPrecio + pie25).toFixed(2)}`;
+            
+            document.getElementById('pie35').innerText = `$${pie35.toFixed(2)}`;
+            document.getElementById('valor35').innerText = `$${(saldoPrecio + pie35).toFixed(2)}`;
+            
+            document.getElementById('pie40').innerText = `$${pie40.toFixed(2)}`;
+            document.getElementById('valor40').innerText = `$${(saldoPrecio + pie40).toFixed(2)}`;
+            
+            document.getElementById('pie46').innerText = `$${pie46.toFixed(2)}`;
+            document.getElementById('valor46').innerText = `$${(saldoPrecio + pie46).toFixed(2)}`;
+            
+            document.getElementById('pie55').innerText = `$${pie55.toFixed(2)}`;
+            document.getElementById('valor55').innerText = `$${(saldoPrecio + pie55).toFixed(2)}`;
+            
+            document.getElementById('pie70').innerText = `$${pie70.toFixed(2)}`;
+            document.getElementById('valor70').innerText = `$${(saldoPrecio + pie70).toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
